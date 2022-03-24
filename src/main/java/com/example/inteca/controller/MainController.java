@@ -43,7 +43,6 @@ public class MainController {
         else
             return "Nie udało się stworzyć rodzine, ponieważ dane rodziny są niepoprawne.";
 
-
     }
 
 }
