@@ -15,4 +15,5 @@ public class FamilyMemberServiceImpl implements FamilyMemberService{
     public void createFamilyMember(FamilyMember familyMember) {
         familyMemberRepository.save(familyMember);
     }
+
 }
