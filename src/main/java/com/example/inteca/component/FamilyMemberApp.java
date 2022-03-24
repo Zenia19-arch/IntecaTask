@@ -18,4 +18,5 @@ public class FamilyMemberApp {
         // The family member is saved to the family member database
         this.familyMemberService.createFamilyMember(familyMember);
     }
+
 }
