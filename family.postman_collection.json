@@ -3,7 +3,7 @@
 		"_postman_id": "a4e6441e-dec6-4784-83e8-bb704096de59",
 		"name": "family",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},,
+	},
 	"item": [
 		{
 			"name": "createFamily",
