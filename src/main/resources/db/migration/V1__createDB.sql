@@ -1,3 +1,4 @@
+
 create table Family_DB (
     id bigint not null auto_increment,
     family_name varchar(255),
