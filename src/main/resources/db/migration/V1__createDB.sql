@@ -1,5 +1,5 @@
 create table Family_DB (
-    id bigint not null,
+    id bigint not null auto_increment,
     family_name varchar(255),
     nr_of_adults integer,
     nr_of_children integer,
@@ -12,7 +12,7 @@ create table Family_MemberDB (
     family_name varchar(255),
     given_name varchar(255),
     age integer not null,
-    id bigint not null,
+    id bigint not null auto_increment,
     primary key (id)
 );
 

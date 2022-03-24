@@ -16,7 +16,7 @@ public class Family {
     private int nrOfChildren;
     private int nrOfInfants;
 
-    @OneToMany(mappedBy = "familyId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "familyId", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Set<FamilyMember> familyId;
 
     public Long getId() {

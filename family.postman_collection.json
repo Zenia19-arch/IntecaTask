@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "a4e6441e-dec6-4784-83e8-bb704096de59",
+		"name": "family",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createFamily",
+			"item": [
+				{
+					"name": "create family",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"familyName\": \"Lewandowski\",\r\n    \"nrOfAdults\": 2,\r\n    \"nrOfChildren\": 0,\r\n    \"nrOfInfants\": 2,\r\n    \"familyId\": [\r\n        {\r\n            \"familyName\": \"Lewandowski\",\r\n            \"givenName\": \"Robert\",\r\n            \"age\": 33\r\n        },\r\n        {\r\n            \"familyName\": \"Lewandowska\",\r\n            \"givenName\": \"Anna\",\r\n            \"age\": 33\r\n        },\r\n        {\r\n            \"familyName\": \"Lewandowska\",\r\n            \"givenName\": \"Klara\",\r\n            \"age\": 4\r\n        },\r\n        {\r\n            \"familyName\": \"Lewandowska\",\r\n            \"givenName\": \"Laura\",\r\n            \"age\": 1\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "getFamily",
+			"item": [
+				{
+					"name": "get family",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

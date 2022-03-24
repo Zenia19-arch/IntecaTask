@@ -15,7 +15,7 @@ public class FamilyMember {
 
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "familyId")
     private Family familyId;
 

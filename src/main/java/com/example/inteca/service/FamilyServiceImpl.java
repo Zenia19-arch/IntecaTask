@@ -5,8 +5,6 @@ import com.example.inteca.repository.FamilyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class FamilyServiceImpl implements FamilyService{
 
@@ -19,7 +17,7 @@ public class FamilyServiceImpl implements FamilyService{
     }
 
     @Override
-    public List<Family> getAll() {
-        return familyRepository.findAll();
+    public void createFamily(Family family) {
+        familyRepository.save(family);
     }
 }

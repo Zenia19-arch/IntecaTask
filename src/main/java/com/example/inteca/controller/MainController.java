@@ -1,57 +1,49 @@
 package com.example.inteca.controller;
 
+import com.example.inteca.component.FamilyApp;
 import com.example.inteca.domain.Family;
-import com.example.inteca.domain.FamilyMember;
-import com.example.inteca.repository.FamilyMemberRepository;
-import com.example.inteca.service.FamilyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/")
 public class MainController {
-    @Autowired
-    private FamilyService familyService;
-    @Autowired
-    FamilyMemberRepository familyMemberRepository;
 
+    @Autowired
+    private FamilyApp familyApp;
 
-    @RequestMapping(value = "{Id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<Family> getFamily(@PathVariable Long Id){
-        if(Id == null){
+    @RequestMapping(value = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Family> getFamily(@PathVariable Long id){
+
+        // Checking the existence of a family under the specified number
+        if(id == null){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        Family family = this.familyService.getFamily(Id);
+        // Returning the number of the created family
+        return familyApp.getFamily(id);
+    }
 
+    @RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String createFamily(@RequestBody @Valid Family family){
+
+        // Checking if the specified family is null
         if(family == null){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return "Nie udało się stworzyć rodzine.";
         }
 
-        return new ResponseEntity<>(family, HttpStatus.OK);
-    }
-
-    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<List<Family>> getAllFamily(){
-        List<Family> family = this.familyService.getAll();
-
-        if(family.isEmpty()){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        return new ResponseEntity<>(family,HttpStatus.OK);
-    }
+        // Checking if a family has been created with the specified parameters
+        if(familyApp.createFamily(family))
+            return "Numer utworzonej rodziny: " + family.getId();
+        else
+            return "Nie udało się stworzyć rodzine, ponieważ dane rodziny są niepoprawne.";
 
 
-    @GetMapping(path="/all")
-    public @ResponseBody Iterable<FamilyMember> getAllUsers() {
-        // This returns a JSON or XML with the users
-        return familyMemberRepository.findAll();
     }
 
 }
