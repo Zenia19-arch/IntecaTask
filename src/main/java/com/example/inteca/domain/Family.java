@@ -66,5 +66,4 @@ public class Family {
     public void setNrOfInfants(int nrOfInfants) {
         this.nrOfInfants = nrOfInfants;
     }
-
 }
